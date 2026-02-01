@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anowar Hossain - Mobile App Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Animated background grid -->
     <div class="grid-background"></div>
-    
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-logo">AH</div>
@@ -26,6 +30,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <canvas id="particle-canvas" class="particle-canvas"></canvas>
         <div class="hero-content">
             <div class="hero-label">Mobile App Developer</div>
             <h1 class="hero-title">
@@ -33,7 +38,7 @@
                 <span class="hero-title-line hero-title-accent">Hossain</span>
             </h1>
             <p class="hero-description">
-                Crafting scalable mobile experiences with Flutter & Kotlin. 
+                Crafting scalable mobile experiences with Flutter & Kotlin.
                 5 years of turning complex requirements into elegant, performant applications.
             </p>
             <div class="hero-stats">
@@ -93,12 +98,16 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p class="lead-text">
-                        Mobile App Developer with 5 years of experience specializing in Flutter and Native Android (Kotlin). 
-                        I build scalable, maintainable applications with a focus on performance, UI/UX, and clean architecture.
+                        Mobile App Developer with 5 years of experience specializing in Flutter and Native Android
+                        (Kotlin).
+                        I build scalable, maintainable applications with a focus on performance, UI/UX, and clean
+                        architecture.
                     </p>
                     <p>
-                        My approach combines technical excellence with user-centric design. Whether integrating complex APIs, 
-                        implementing advanced state management, or optimizing performance, I'm driven by creating impactful 
+                        My approach combines technical excellence with user-centric design. Whether integrating complex
+                        APIs,
+                        implementing advanced state management, or optimizing performance, I'm driven by creating
+                        impactful
                         solutions that users love.
                     </p>
                     <div class="about-highlights">
@@ -177,7 +186,8 @@
                         <h3 class="timeline-title">Software Engineer</h3>
                         <div class="timeline-company">Riseup Labs</div>
                         <ul class="timeline-achievements">
-                            <li>Developed high-performance apps in Flutter and Android (Kotlin) with clean architecture</li>
+                            <li>Developed high-performance apps in Flutter and Android (Kotlin) with clean architecture
+                            </li>
                             <li>Implemented state management using Provider, GetX, and BLoC</li>
                             <li>Integrated RESTful APIs, payment gateways (bKash, ABA), and deep linking</li>
                             <li>Collaborated with designers and backend teams to deliver seamless UI/UX</li>
@@ -195,10 +205,12 @@
                         <h3 class="timeline-title">Flutter Developer</h3>
                         <div class="timeline-company">Tickets For Travel</div>
                         <ul class="timeline-achievements">
-                            <li>Built cross-platform mobile apps with Flutter focusing on performance and scalability</li>
+                            <li>Built cross-platform mobile apps with Flutter focusing on performance and scalability
+                            </li>
                             <li>Integrated RESTful APIs, WebSockets, Google Maps, and Places API</li>
                             <li>Collaborated on UI/UX implementation and worked closely with backend teams</li>
-                            <li>Improved app stability and user experience by resolving bugs and optimizing performance</li>
+                            <li>Improved app stability and user experience by resolving bugs and optimizing performance
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -216,47 +228,20 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">eCook</h3>
-                        <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ecook.app" target="_blank" class="project-link" title="Android App">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
-                                </svg>
-                            </a>
-                            <a href="https://apps.apple.com/app/ecook/id123456" target="_blank" class="project-link" title="iOS App">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Smart energy tracking app integrated with electric stove devices. Displays daily usage, 
-                        cost comparisons, and allows secure payment. Includes deep linking, tutorials, FAQs, 
-                        and multi-language support.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">GetX</span>
-                        <span class="tech-tag">RESTful API</span>
-                        <span class="tech-tag">bKash & ABA Payments</span>
-                        <span class="tech-tag">Deep Linking</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
                         <h3 class="project-title">শিক্ষক সহায়িকা</h3>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.teacher.guide" target="_blank" class="project-link" title="Android App">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                            <a href="https://play.google.com/store/apps/details?id=com.teacher.guide" target="_blank"
+                                class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
                                 </svg>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Educational tool for teachers featuring NCTB guides, PDF viewer, video tutorials, 
+                        Educational tool for teachers featuring NCTB guides, PDF viewer, video tutorials,
                         and embedded web content. Streamlines educational resource access for teachers.
                     </p>
                     <div class="project-tech">
@@ -270,31 +255,182 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">U-Youth Burkina</h3>
+                        <h3 class="project-title">eCook</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ecook.app" target="_blank"
+                                class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+                                </svg>
+                            </a>
+                            <a href="https://apps.apple.com/app/ecook/id123456" target="_blank" class="project-link"
+                                title="iOS App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     <p class="project-description">
-                        Youth engagement platform with modules like Stories, Community Chat, Opinion forms, 
-                        Results tracking, and U-Programa. Developed using MVVM and Coroutines with media 
-                        and task handling features.
+                        Smart energy tracking app integrated with electric stove devices. Displays daily usage,
+                        cost comparisons, and allows secure payment. Includes deep linking, tutorials, FAQs,
+                        and multi-language support.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Kotlin</span>
-                        <span class="tech-tag">XML</span>
-                        <span class="tech-tag">MVVM</span>
-                        <span class="tech-tag">Retrofit</span>
-                        <span class="tech-tag">Coroutines</span>
-                        <span class="tech-tag">ExoPlayer</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">GetX</span>
+                        <span class="tech-tag">RESTful API</span>
+                        <span class="tech-tag">bKash & ABA Payments</span>
+                        <span class="tech-tag">Deep Linking</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Islamic Quotes</h3>
+                        <div class="project-links">
+                            <a href="https://riseuplabs.com/islamic-quotes/" target="_blank" class="project-link"
+                                title="Project Website">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Islamic quotes application providing daily inspirational quotes from Quran and Hadith. Features
+                        A/B testing for UI optimization, quote sharing, favorites, and notifications. Built with Flutter
+                        and GetX state management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">GetX</span>
+                        <span class="tech-tag">A/B Testing</span>
+                        <span class="tech-tag">Notification</span>
+                        <span class="tech-tag">Ads Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">BMI Calculator - Weight Monitor</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.riseuplabs.bmicalculator&hl=en_US&pli=1"
+                                target="_blank" class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+                                </svg>
+                            </a>
+                            <a href="https://apps.apple.com/us/app/bmi-calculator-weight-monitor/id6475051596"
+                                target="_blank" class="project-link" title="iOS App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Cross-platform BMI Calculator app enabling users to create profiles, calculate BMI, and track
+                        history for progress monitoring. Features clean UI, lightweight performance, and in-app
+                        purchases for premium features.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Provider</span>
+                        <span class="tech-tag">Notification</span>
+                        <span class="tech-tag">Ads Integration</span>
+                        <span class="tech-tag">In-app Purchase</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Easy Salah Steps: Prayer Guide</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.riseuplabs.easysalahsteps&hl=en_US"
+                                target="_blank" class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+                                </svg>
+                            </a>
+                            <a href="https://apps.apple.com/us/app/easy-salah-steps-prayer-guide/id6469583494"
+                                target="_blank" class="project-link" title="iOS App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Educational Islamic app with step-by-step visual and audio guidance for Salah. Features daily
+                        prayer times based on location, notifications, Kalimas, essential Duas, and Qibla compass.
+                        Includes in-app purchases for premium content.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">GetX</span>
+                        <span class="tech-tag">Ads Integration</span>
+                        <span class="tech-tag">In-app Purchase</span>
+                        <span class="tech-tag">Notification</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Masnun Dua & Tasbeeh Counter</h3>
+                        <div class="project-links">
+                            <a href="https://riseuplabs.com/masnoon-dua-tasbeeh-counter/" target="_blank"
+                                class="project-link" title="Project Website">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Comprehensive Islamic app featuring Masnun Duas (supplications) and digital Tasbeeh counter.
+                        Includes audio recitations, translations, and customizable counter with vibration feedback.
+                        Built with Flutter and BLoC state management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">BLoC</span>
+                        <span class="tech-tag">Audio Player</span>
+                        <span class="tech-tag">Notification</span>
+                        <span class="tech-tag">Ads Integration</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">U-Report BD</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="Project">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     <p class="project-description">
-                        App includes Stories, video playback, and dynamic surveys from JSON via ONA. 
-                        Built with MVVM architecture, supports multiple languages, and displays survey 
-                        results for real-time insights.
+                        Native Android app with Stories, Videos, Opinion (dynamic questions from ONA with user
+                        submissions), and Results modules. Integrates dynamic question forms enabling user interaction
+                        and data submission for insightful analysis.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Kotlin</span>
@@ -302,7 +438,138 @@
                         <span class="tech-tag">MVVM</span>
                         <span class="tech-tag">Retrofit</span>
                         <span class="tech-tag">Coroutines</span>
-                        <span class="tech-tag">Multi-language</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">U-Youth Burkina</h3>
+                        <div class="project-links">
+                            <a href="https://riseuplabs.com/u-report-burkina-faso/" target="_blank" class="project-link"
+                                title="Project Website">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Native Android app with Stories (CRUD operations), Community chat, Opinion (RapidPro flows),
+                        Results display, and U-Programa (rule management and task assignments). Interactive platform for
+                        engagement and structured task management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">XML</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Retrofit</span>
+                        <span class="tech-tag">Coroutines</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Tickets For Travel</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.tickets4travel.tickets4travel"
+                                target="_blank" class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        A comprehensive travel & ticket booking app providing best hotel deals and best-priced tickets
+                        for bus, launch, and flight. Features online payment methods and refund processing for
+                        customers.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Payment Gateway</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">Booking System</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Ride Sharing App</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="Project">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Mobile ride-sharing application connecting drivers and passengers. Built with Flutter for
+                        cross-platform compatibility and real-time location tracking.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Google Maps</span>
+                        <span class="tech-tag">Real-time Tracking</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Food Delivery App</h3>
+                        <div class="project-links">
+                            <a href="https://gitlab.com/Hossain72/tourmate" target="_blank" class="project-link"
+                                title="GitLab">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Online food delivery application enabling customers to order food online. Features restaurant
+                        browsing, cart management, and order tracking functionality.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">Order Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">E-Commerce App</h3>
+                        <div class="project-links">
+                            <a href="https://gitlab.com/Hossain72/e-commerce" target="_blank" class="project-link"
+                                title="GitLab">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Full-featured e-commerce application for online shopping. Includes product catalog, shopping
+                        cart, checkout process, and order management system.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">Shopping Cart</span>
+                        <span class="tech-tag">Payment Integration</span>
                     </div>
                 </div>
             </div>
@@ -319,15 +586,17 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <p class="contact-intro">
-                        I'm always interested in hearing about new projects and opportunities. 
+                        I'm always interested in hearing about new projects and opportunities.
                         Whether you have a question or just want to say hi, feel free to reach out!
                     </p>
                     <div class="contact-methods">
                         <a href="mailto:hossainanowar72@gmail.com" class="contact-method">
                             <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
                                 </svg>
                             </div>
                             <div>
@@ -337,8 +606,10 @@
                         </a>
                         <a href="tel:+8801752867007" class="contact-method">
                             <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                                 </svg>
                             </div>
                             <div>
@@ -349,7 +620,8 @@
                         <a href="https://www.linkedin.com/in/hossain72/" target="_blank" class="contact-method">
                             <div class="contact-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                 </svg>
                             </div>
                             <div>
@@ -360,7 +632,8 @@
                         <a href="https://github.com/hossain72" target="_blank" class="contact-method">
                             <div class="contact-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                             </div>
                             <div>
@@ -400,7 +673,134 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // ==================== PARTICLE ANIMATION ====================
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Mouse interaction
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 100) {
+                    this.x -= dx / 50;
+                    this.y -= dy / 50;
+                }
+
+                // Wrap around edges
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Create particles
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Draw connections
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - distance / 120)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // ==================== TYPING EFFECT ====================
+        const roles = ['Mobile App Developer', 'Flutter Expert', 'Kotlin Specialist', 'Clean Code Advocate'];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const heroLabel = document.querySelector('.hero-label');
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                heroLabel.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                heroLabel.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let timeout = isDeleting ? deletingSpeed : typingSpeed;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                timeout = pauseTime;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+
+            setTimeout(typeEffect, timeout);
+        }
+        setTimeout(typeEffect, 1000);
+
+        // ==================== SMOOTH SCROLLING ====================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -414,7 +814,7 @@
             });
         });
 
-        // Navbar background on scroll
+        // ==================== NAVBAR SCROLL EFFECT ====================
         const nav = document.querySelector('.nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -424,7 +824,65 @@
             }
         });
 
-        // Intersection Observer for animations
+        // ==================== ANIMATED COUNTERS ====================
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 30);
+        }
+
+        // ==================== 3D CARD TILT EFFECT ====================
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // ==================== SKILL PROGRESS ANIMATION ====================
+        const skillTags = document.querySelectorAll('.skill-tag');
+        let skillsAnimated = false;
+
+        function animateSkills() {
+            if (skillsAnimated) return;
+            skillsAnimated = true;
+
+            skillTags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.opacity = '0';
+                    tag.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        tag.style.transition = 'all 0.5s ease';
+                        tag.style.opacity = '1';
+                        tag.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        }
+
+        // ==================== INTERSECTION OBSERVER ====================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -434,14 +892,56 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+
+                    // Trigger counter animation for stats
+                    if (entry.target.classList.contains('hero')) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            const target = parseInt(stat.textContent);
+                            animateCounter(stat, target);
+                        });
+                    }
+
+                    // Trigger skill animation
+                    if (entry.target.classList.contains('about')) {
+                        animateSkills();
+                    }
                 }
             });
         }, observerOptions);
 
         // Observe all sections and cards
-        document.querySelectorAll('section, .project-card, .timeline-item').forEach(el => {
+        document.querySelectorAll('section, .project-card, .timeline-item, .skill-category').forEach(el => {
             observer.observe(el);
+        });
+
+        // ==================== COPY TO CLIPBOARD ====================
+        const contactMethods = document.querySelectorAll('.contact-method');
+        contactMethods.forEach(method => {
+            const href = method.getAttribute('href');
+            if (href && (href.startsWith('mailto:') || href.startsWith('tel:'))) {
+                method.addEventListener('click', (e) => {
+                    const value = href.startsWith('mailto:') ? href.replace('mailto:', '') : href.replace('tel:', '');
+                    navigator.clipboard.writeText(value).then(() => {
+                        const originalText = method.querySelector('.contact-value').textContent;
+                        method.querySelector('.contact-value').textContent = 'Copied!';
+                        setTimeout(() => {
+                            method.querySelector('.contact-value').textContent = originalText;
+                        }, 2000);
+                    });
+                });
+            }
+        });
+
+        // ==================== PARALLAX EFFECT ====================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroVisual = document.querySelector('.hero-visual');
+            if (heroVisual) {
+                heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 </body>
+
 </html>
