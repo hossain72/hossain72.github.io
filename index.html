@@ -1,5 +1,447 @@
 <!DOCTYPE html>
-<html>
-<head><title>আমার প্রোফাইল</title></head>
-<body><h1>স্বাগতম আমার সাইটে!</h1></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anowar Hossain - Mobile App Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated background grid -->
+    <div class="grid-background"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">AH</div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link nav-link-highlight">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Mobile App Developer</div>
+            <h1 class="hero-title">
+                <span class="hero-title-line">Md. Anowar</span>
+                <span class="hero-title-line hero-title-accent">Hossain</span>
+            </h1>
+            <p class="hero-description">
+                Crafting scalable mobile experiences with Flutter & Kotlin. 
+                5 years of turning complex requirements into elegant, performant applications.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Apps Shipped</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Best Dev Awards</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Work</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="code-title">main.dart</div>
+                </div>
+                <div class="code-content">
+                    <pre><code><span class="code-keyword">class</span> <span class="code-class">Developer</span> {
+  <span class="code-keyword">final</span> <span class="code-type">String</span> name = <span class="code-string">'Anowar Hossain'</span>;
+  <span class="code-keyword">final</span> <span class="code-type">List</span>&lt;<span class="code-type">String</span>&gt; skills = [
+    <span class="code-string">'Flutter'</span>,
+    <span class="code-string">'Kotlin'</span>,
+    <span class="code-string">'Clean Architecture'</span>,
+  ];
+  
+  <span class="code-keyword">void</span> <span class="code-function">buildAmazingApps</span>() {
+    <span class="code-comment">// Magic happens here ✨</span>
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">01</span>
+                About Me
+            </h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="lead-text">
+                        Mobile App Developer with 5 years of experience specializing in Flutter and Native Android (Kotlin). 
+                        I build scalable, maintainable applications with a focus on performance, UI/UX, and clean architecture.
+                    </p>
+                    <p>
+                        My approach combines technical excellence with user-centric design. Whether integrating complex APIs, 
+                        implementing advanced state management, or optimizing performance, I'm driven by creating impactful 
+                        solutions that users love.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎯</div>
+                            <div class="highlight-text">Clean Architecture Advocate</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">⚡</div>
+                            <div class="highlight-text">Performance Optimization Expert</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🚀</div>
+                            <div class="highlight-text">Cross-Platform Specialist</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Dart</span>
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Android SDK</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>State Management</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Provider</span>
+                            <span class="skill-tag">GetX</span>
+                            <span class="skill-tag">BLoC</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Architecture</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MVVM</span>
+                            <span class="skill-tag">Clean Architecture</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & APIs</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">RESTful APIs</span>
+                            <span class="skill-tag">WebSockets</span>
+                            <span class="skill-tag">Google Maps</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">02</span>
+                Experience
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">October 2022 - Present</div>
+                        <h3 class="timeline-title">Software Engineer</h3>
+                        <div class="timeline-company">Riseup Labs</div>
+                        <ul class="timeline-achievements">
+                            <li>Developed high-performance apps in Flutter and Android (Kotlin) with clean architecture</li>
+                            <li>Implemented state management using Provider, GetX, and BLoC</li>
+                            <li>Integrated RESTful APIs, payment gateways (bKash, ABA), and deep linking</li>
+                            <li>Collaborated with designers and backend teams to deliver seamless UI/UX</li>
+                            <li>Resolved performance issues and enhanced app stability through effective debugging</li>
+                        </ul>
+                        <div class="timeline-award">
+                            🏆 Best Software Developer – Q2 & Q3 2024
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">January 2021 - September 2022</div>
+                        <h3 class="timeline-title">Flutter Developer</h3>
+                        <div class="timeline-company">Tickets For Travel</div>
+                        <ul class="timeline-achievements">
+                            <li>Built cross-platform mobile apps with Flutter focusing on performance and scalability</li>
+                            <li>Integrated RESTful APIs, WebSockets, Google Maps, and Places API</li>
+                            <li>Collaborated on UI/UX implementation and worked closely with backend teams</li>
+                            <li>Improved app stability and user experience by resolving bugs and optimizing performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">03</span>
+                Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">eCook</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ecook.app" target="_blank" class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                                </svg>
+                            </a>
+                            <a href="https://apps.apple.com/app/ecook/id123456" target="_blank" class="project-link" title="iOS App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Smart energy tracking app integrated with electric stove devices. Displays daily usage, 
+                        cost comparisons, and allows secure payment. Includes deep linking, tutorials, FAQs, 
+                        and multi-language support.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">GetX</span>
+                        <span class="tech-tag">RESTful API</span>
+                        <span class="tech-tag">bKash & ABA Payments</span>
+                        <span class="tech-tag">Deep Linking</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">শিক্ষক সহায়িকা</h3>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.teacher.guide" target="_blank" class="project-link" title="Android App">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Educational tool for teachers featuring NCTB guides, PDF viewer, video tutorials, 
+                        and embedded web content. Streamlines educational resource access for teachers.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">GetX</span>
+                        <span class="tech-tag">RESTful API</span>
+                        <span class="tech-tag">YouTube Player</span>
+                        <span class="tech-tag">PDF Viewer</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">U-Youth Burkina</h3>
+                    </div>
+                    <p class="project-description">
+                        Youth engagement platform with modules like Stories, Community Chat, Opinion forms, 
+                        Results tracking, and U-Programa. Developed using MVVM and Coroutines with media 
+                        and task handling features.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">XML</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Retrofit</span>
+                        <span class="tech-tag">Coroutines</span>
+                        <span class="tech-tag">ExoPlayer</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">U-Report BD</h3>
+                    </div>
+                    <p class="project-description">
+                        App includes Stories, video playback, and dynamic surveys from JSON via ONA. 
+                        Built with MVVM architecture, supports multiple languages, and displays survey 
+                        results for real-time insights.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Retrofit</span>
+                        <span class="tech-tag">Coroutines</span>
+                        <span class="tech-tag">Multi-language</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">04</span>
+                Let's Connect
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-intro">
+                        I'm always interested in hearing about new projects and opportunities. 
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:hossainanowar72@gmail.com" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">hossainanowar72@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="tel:+8801752867007" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="contact-label">Phone</div>
+                                <div class="contact-value">+880 1752 867007</div>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hossain72/" target="_blank" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="contact-label">LinkedIn</div>
+                                <div class="contact-value">linkedin.com/in/hossain72</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/hossain72" target="_blank" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="contact-label">GitHub</div>
+                                <div class="contact-value">github.com/hossain72</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-education">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <div class="education-degree">Bachelor of Science in Computer Science and Engineering</div>
+                        <div class="education-school">Model Institute of Science and Technology (MIST)</div>
+                        <div class="education-location">Gazipur, Bangladesh</div>
+                        <div class="education-year">2019</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2026 Md. Anowar Hossain. Built with passion for great mobile experiences.
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/hossain72" target="_blank">GitHub</a>
+                    <a href="https://gitlab.com/anowar72" target="_blank">GitLab</a>
+                    <a href="https://www.linkedin.com/in/hossain72/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .project-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
