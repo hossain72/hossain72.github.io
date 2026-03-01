@@ -25,6 +25,10 @@
             <a href="#experience" class="nav-link">Experience</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link nav-link-highlight">Contact</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+                <span class="icon-sun" aria-hidden="true">&#9728;</span>
+                <span id="theme-label">Light</span>
+            </button>
         </div>
     </nav>
 
@@ -734,7 +738,10 @@
             }
 
             draw() {
-                ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+                // Use violet for dark mode, neutral for light
+                const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                const color = isLight ? `rgba(124, 58, 237, ${this.opacity * 0.5})` : `rgba(167, 139, 250, ${this.opacity})`;
+                ctx.fillStyle = color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -762,7 +769,11 @@
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < 120) {
-                        ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - distance / 120)})`;
+                        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                        const lineColor = isLight
+                            ? `rgba(124, 58, 237, ${0.1 * (1 - distance / 120)})`
+                            : `rgba(167, 139, 250, ${0.18 * (1 - distance / 120)})`;
+                        ctx.strokeStyle = lineColor;
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
@@ -956,6 +967,35 @@
             if (heroVisual) {
                 heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
+        });
+
+        // ==================== THEME TOGGLE ====================
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeLabel = document.getElementById('theme-label');
+        const themeIcon = themeToggleBtn.querySelector('.icon-sun');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            if (theme === 'light') {
+                themeIcon.innerHTML = '&#9790;';  // moon crescent 
+                themeLabel.textContent = 'Dark';
+                themeToggleBtn.title = 'Switch to dark mode';
+            } else {
+                themeIcon.innerHTML = '&#9728;';  // sun
+                themeLabel.textContent = 'Light';
+                themeToggleBtn.title = 'Switch to light mode';
+            }
+        }
+
+        // Restore saved preference (default: dark)
+        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            applyTheme(next);
+            localStorage.setItem('portfolio-theme', next);
         });
     </script>
 </body>
