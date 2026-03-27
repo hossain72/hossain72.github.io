@@ -11,6 +11,15 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Jameel (Rider & Captain)",
+      description: "Ride-hailing mobile applications for passengers (Rider) and drivers (Captain), enabling real-time booking, live tracking, and route navigation. Supports trip management, fare estimation, driver earnings tracking, and secure digital payments. Includes deep linking, push notifications, and performance optimizations for a scalable, seamless user experience.",
+      tech: ["Kotlin", "RESTful API", "Myfatoorah", "Multi-language", "Google Maps"],
+      links: [
+        { type: "android", url: "https://play.google.com/store/apps/details?id=com.jameel.rider.prod" },
+        { type: "android", url: "https://play.google.com/store/apps/details?id=com.jameel.captain.prod" }
+      ]
+    },
+    {
       title: "শিক্ষক সহায়িকা",
       description: "Educational tool for teachers featuring NCTB guides, PDF viewer, video tutorials, and embedded web content. Streamlines educational resource access for teachers.",
       tech: ["Flutter", "GetX", "RESTful API", "YouTube Player", "PDF Viewer"],

@@ -10,15 +10,35 @@ export default function Experience() {
 
   const experiences = [
     {
+      period: "Dec 2025 - Present (Part - Time)",
+      title: "Senior Android Developer",
+      company: "Jameel",
+      achievements: [
+        "Developed and maintained high-performance Android applications using Kotlin following Clean Architecture (MVVM) principles",
+        "Designed scalable and maintainable codebases with proper separation of concerns and modularization",
+        "Integrated RESTful APIs, Myfatoorah payment gateway, Google Maps, and OneSignal push notifications",
+        "Led feature development from requirement analysis to deployment, ensuring high-quality deliverables",
+        "Collaborated closely with UI/UX designers, backend engineers, and product stakeholders to build seamless and user-friendly applications",
+        "Optimized app performance, reduced memory leaks, and improved responsiveness using advanced debugging and profiling tools",
+        "Implemented dependency injection (Hilt/Dagger) for better code management and testability",
+        "Ensured code quality through code reviews, best practices, and adherence to Android development standards",
+        "Worked with Git-based version control and followed Agile/Scrum methodologies for efficient project delivery",
+        "Published and maintained apps on the Google Play Store, including monitoring crashes via tools like Firebase Crashlytics"
+      ]
+    },
+    {
       period: "October 2022 - Present",
       title: "Software Engineer",
       company: "Riseup Labs",
       achievements: [
-        "Developed high-performance apps in Flutter and Android (Kotlin) with clean architecture",
-        "Implemented state management using Provider, GetX, and BLoC",
-        "Integrated RESTful APIs, payment gateways (bKash, ABA), and deep linking",
-        "Collaborated with designers and backend teams to deliver seamless UI/UX",
-        "Resolved performance issues and enhanced app stability through effective debugging"
+        "Developed and maintained high-performance mobile applications using Flutter and Android (Kotlin) following Clean Architecture (MVVM) principles",
+        "Implemented scalable state management solutions using Provider, GetX, and BLoC, ensuring maintainable and testable code",
+        "Integrated RESTful APIs, payment gateways (bKash, ABA), and deep linking for seamless user experience and secure transactions",
+        "Designed modular and reusable components to improve development efficiency and code quality",
+        "Collaborated closely with UI/UX designers, backend engineers, and product teams to deliver intuitive and user-friendly applications",
+        "Optimized app performance by identifying bottlenecks, reducing load times, and improving memory management",
+        "Diagnosed and resolved complex issues, enhancing overall app stability and reliability",
+        "Followed Agile/Scrum methodologies, participating in sprint planning, code reviews, and continuous improvement processes"
       ],
       award: "🏆 Best Software Developer – Q2 & Q3 2024"
     },
@@ -27,10 +47,10 @@ export default function Experience() {
       title: "Flutter Developer",
       company: "Tickets For Travel",
       achievements: [
-        "Built cross-platform mobile apps with Flutter focusing on performance and scalability",
-        "Integrated RESTful APIs, WebSockets, Google Maps, and Places API",
-        "Collaborated on UI/UX implementation and worked closely with backend teams",
-        "Improved app stability and user experience by resolving bugs and optimizing performance"
+        "Developed cross-platform mobile applications using Flutter, focusing on performance, scalability, and responsive UI design",
+        "Integrated RESTful APIs, WebSockets, Google Maps, and Places API to deliver real-time and location-based features",
+        "Worked closely with backend developers to ensure smooth data flow and API efficiency",
+        "Improved application stability by identifying and fixing bugs, and optimizing performance across multiple devices"
       ]
     }
   ];
