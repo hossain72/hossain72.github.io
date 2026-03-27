@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, stagger, useAnimate } from 'framer-motion';
+import Magnetic from './Magnetic';
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -135,13 +136,37 @@ export default function Hero() {
       >
         <div className="hero-label">Mobile App Developer</div>
         <h1 className="hero-title">
-          <span className="hero-title-line">Md. Anowar</span>
-          <span className="hero-title-line hero-title-accent">Hossain</span>
+          <div style={{ overflow: "hidden", display: "inline-block" }}>
+            <motion.span 
+              className="hero-title-line"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+            >
+              Md. Anowar
+            </motion.span>
+          </div>
+          <br />
+          <div style={{ overflow: "hidden", display: "inline-block" }}>
+            <motion.span 
+              className="hero-title-line hero-title-accent"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+            >
+              Hossain
+            </motion.span>
+          </div>
         </h1>
-        <p className="hero-description">
+        <motion.p 
+          className="hero-description"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           Crafting scalable mobile experiences with Flutter & Kotlin. 
           5 years of turning complex requirements into elegant, performant applications.
-        </p>
+        </motion.p>
         <div className="hero-stats">
           <div className="stat">
             <div className="stat-number">5+</div>
@@ -157,16 +182,22 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-cta">
-          <a href="#contact" className="btn btn-primary">Get in Touch</a>
-          <a href="#projects" className="btn btn-secondary">View Work</a>
-          <a href="/Anowar Hossain.pdf" download className="btn btn-accent">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download Resume
-          </a>
+          <Magnetic>
+            <a href="#contact" className="btn btn-primary">Get in Touch</a>
+          </Magnetic>
+          <Magnetic>
+            <a href="#projects" className="btn btn-secondary">View Work</a>
+          </Magnetic>
+          <Magnetic>
+            <a href="/Anowar Hossain.pdf" download className="btn btn-accent">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume
+            </a>
+          </Magnetic>
         </div>
       </motion.div>
       <motion.div 

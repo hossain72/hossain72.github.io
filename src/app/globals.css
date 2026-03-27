@@ -1255,3 +1255,39 @@ section {
         text-align: center;
     }
 }
+
+/* ===========================
+   Custom Cursor Styles
+   =========================== */
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: none;
+    }
+
+    a, button, .theme-toggle, .btn, .project-card, .skill-tag {
+        cursor: none;
+    }
+
+    .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        will-change: transform, width, height, background-color, border, mix-blend-mode;
+    }
+
+    .custom-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-accent-primary);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        will-change: transform;
+    }
+}

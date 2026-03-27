@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Sun, Moon } from 'lucide-react';
+import { Moon, Sun } from "lucide-react";
+import Magnetic from "./Magnetic";
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
@@ -48,23 +49,36 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`nav ${isScrolled ? 'scrolled' : ''}`}
     >
-      <div className="nav-logo">AH</div>
+      <Magnetic>
+        <a href="#" className="nav-logo">AH</a>
+      </Magnetic>
       <div className="nav-links">
-        <Link href="#about" className="nav-link">About</Link>
-        <Link href="#experience" className="nav-link">Experience</Link>
-        <Link href="#projects" className="nav-link">Projects</Link>
-        <Link href="#contact" className="nav-link nav-link-highlight">Contact</Link>
-        {mounted && (
+        {["About", "Experience", "Projects"].map((item) => (
+          <Magnetic key={item}>
+            <a 
+              href={`#${item.toLowerCase()}`} 
+              className="nav-link"
+            >
+              {item}
+            </a>
+          </Magnetic>
+        ))}
+        <Magnetic>
+          <a href="#contact" className="nav-link nav-link-highlight">Contact</a>
+        </Magnetic>
+        <Magnetic>
           <button 
             onClick={toggleTheme} 
-            className="theme-toggle" 
-            aria-label="Toggle light/dark mode" 
-            title="Toggle theme"
+            className="theme-toggle"
+            aria-label="Toggle dark mode"
           >
-            {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
-            <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            {theme === 'dark' ? (
+              <><Sun className="icon-sun" /> Light</>
+            ) : (
+              <><Moon className="icon-moon" /> Dark</>
+            )}
           </button>
-        )}
+        </Magnetic>
       </div>
     </motion.nav>
   );

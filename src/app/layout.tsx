@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: "400",
@@ -44,6 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${dmSerifDisplay.variable} ${jetbrainsMono.variable}`}>
+        <CustomCursor />
         {children}
       </body>
     </html>
