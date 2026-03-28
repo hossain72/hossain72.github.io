@@ -1,20 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function BackgroundGrid() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 2000], [0, -300]);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <div className="grid-background"></div>;
-  }
 
   return (
     <motion.div 

@@ -1,34 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TextReveal from "./TextReveal";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.2,
+    }
+  }
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, y: 15, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.4, ease: [0.215, 0.61, 0.355, 1] }
+  }
+};
 
 export default function About() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   return (
     <section id="about" className="about">
       <div className="container">
         <motion.h2 
           className="section-title"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
         >
           <span className="section-number">01</span>
-          About Me
+          <TextReveal text="About Me" delay={200} />
         </motion.h2>
 
         <div className="about-grid">
           <motion.div 
             className="about-text"
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
           >
             <p className="lead-text">
               Mobile App Developer with 5 years of experience specializing in Flutter and Native Android (Kotlin).
@@ -48,9 +65,19 @@ export default function About() {
                 <motion.div 
                   key={index} 
                   className="highlight-item"
-                  whileHover={{ scale: 1.02, x: 5 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.15, ease: [0.215, 0.61, 0.355, 1] }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.03, x: 10, boxShadow: "0 0 20px rgba(244, 114, 182, 0.15)" }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <div className="highlight-icon">{highlight.icon}</div>
+                  <motion.div 
+                    className="highlight-icon"
+                    whileHover={{ rotate: [0, -10, 10, -5, 5, 0], transition: { duration: 0.5 } }}
+                  >
+                    {highlight.icon}
+                  </motion.div>
                   <div className="highlight-text">{highlight.text}</div>
                 </motion.div>
               ))}
@@ -62,7 +89,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
+            variants={containerVariants}
           >
             {[
               { category: "Languages", skills: ["Dart", "Kotlin", "Java"] },
@@ -72,14 +99,30 @@ export default function About() {
               { category: "Tools & APIs", skills: ["Git", "RESTful APIs", "WebSockets", "Google Maps", "Figma"] },
               { category: "Payment Integration", skills: ["bKash", "Stripe", "ABA Pay", "MyFatoorah"] }
             ].map((group, index) => (
-              <div key={index} className="skill-category">
+              <motion.div key={index} className="skill-category" variants={tagVariants}>
                 <h3>{group.category}</h3>
-                <div className="skill-tags">
+                <motion.div 
+                  className="skill-tags"
+                  variants={containerVariants}
+                >
                   {group.skills.map((skill, sIdx) => (
-                    <span key={sIdx} className="skill-tag">{skill}</span>
+                    <motion.span 
+                      key={sIdx} 
+                      className="skill-tag"
+                      variants={tagVariants}
+                      whileHover={{ 
+                        scale: 1.12, 
+                        y: -4,
+                        boxShadow: "0 6px 20px rgba(244, 114, 182, 0.2)",
+                        transition: { type: "spring", stiffness: 500, damping: 15 }
+                      }}
+                      whileTap={{ scale: 0.92 }}
+                    >
+                      {skill}
+                    </motion.span>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

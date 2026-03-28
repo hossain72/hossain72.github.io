@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TextReveal from "./TextReveal";
 
 export default function Experience() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   const experiences = [
     {
       period: "Dec 2025 - Present (Part - Time)",
@@ -60,13 +56,13 @@ export default function Experience() {
       <div className="container">
         <motion.h2 
           className="section-title"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
         >
           <span className="section-number">02</span>
-          Experience
+          <TextReveal text="Experience" delay={200} />
         </motion.h2>
         
         <div className="timeline">
@@ -74,28 +70,54 @@ export default function Experience() {
             <motion.div 
               key={index}
               className="timeline-item"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.2, ease: [0.215, 0.61, 0.355, 1] }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="timeline-marker"></div>
+              <motion.div 
+                className="timeline-marker"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.2 + 0.3, type: "spring", stiffness: 400 }}
+                viewport={{ once: true }}
+              />
               <motion.div 
                 className="timeline-content"
-                whileHover={{ y: -5, boxShadow: "var(--shadow-lg)" }}
+                whileHover={{ 
+                  y: -5, 
+                  x: 6,
+                  boxShadow: "0 8px 40px rgba(244, 114, 182, 0.1), 0 0 20px rgba(34, 211, 238, 0.05)" 
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className="timeline-period">{exp.period}</div>
                 <h3 className="timeline-title">{exp.title}</h3>
                 <div className="timeline-company">{exp.company}</div>
                 <ul className="timeline-achievements">
                   {exp.achievements.map((achievement, aIdx) => (
-                    <li key={aIdx}>{achievement}</li>
+                    <motion.li 
+                      key={aIdx}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: aIdx * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      {achievement}
+                    </motion.li>
                   ))}
                 </ul>
                 {exp.award && (
-                  <div className="timeline-award">
+                  <motion.div 
+                    className="timeline-award"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.4, type: "spring" }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.03 }}
+                  >
                     {exp.award}
-                  </div>
+                  </motion.div>
                 )}
               </motion.div>
             </motion.div>

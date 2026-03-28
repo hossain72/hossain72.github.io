@@ -1,34 +1,24 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Moon, Sun } from "lucide-react";
 import Magnetic from "./Magnetic";
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
-    setMounted(true);
+    // Read the actual theme from DOM (set by the inline script in layout.tsx)
+    const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    setTheme(currentTheme);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    if (savedTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      setTheme('light');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      setTheme('dark');
-    }
   }, []);
 
   const toggleTheme = () => {
@@ -72,7 +62,10 @@ export default function Navbar() {
             className="theme-toggle"
             aria-label="Toggle dark mode"
           >
-            {theme === 'dark' ? (
+            {theme === null ? (
+              // Render a stable placeholder during SSR and before hydration
+              <span style={{ display: 'inline-block', width: '1em', height: '1em' }} />
+            ) : theme === 'dark' ? (
               <><Sun className="icon-sun" /> Light</>
             ) : (
               <><Moon className="icon-moon" /> Dark</>

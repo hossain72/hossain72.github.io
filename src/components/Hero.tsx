@@ -1,8 +1,47 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import { motion, stagger, useAnimate } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import Magnetic from './Magnetic';
+import AnimatedCounter from './AnimatedCounter';
+
+const roles = ["Mobile App Developer", "Flutter Expert", "Kotlin Specialist", "Clean Architecture Advocate"];
+
+function TypewriterLabel() {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const role = roles[currentRole];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayText === role) {
+      // Pause before deleting
+      timeout = setTimeout(() => setIsDeleting(true), 2500);
+    } else if (isDeleting && displayText === "") {
+      // Move to next role
+      setIsDeleting(false);
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    } else if (isDeleting) {
+      timeout = setTimeout(() => {
+        setDisplayText(role.substring(0, displayText.length - 1));
+      }, 40);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayText(role.substring(0, displayText.length + 1));
+      }, 80);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRole]);
+
+  return (
+    <div className="hero-label">
+      {displayText}
+    </div>
+  );
+}
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -32,34 +71,61 @@ export default function Hero() {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
+    const getColors = () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      return {
+        particle: isLight
+          ? (opacity: number) => `rgba(236, 72, 153, ${opacity * 0.5})`
+          : (opacity: number) => `rgba(244, 114, 182, ${opacity})`,
+        line: isLight
+          ? (alpha: number) => `rgba(8, 145, 178, ${0.1 * alpha})`
+          : (alpha: number) => `rgba(34, 211, 238, ${0.15 * alpha})`,
+      };
+    };
+
     class Particle {
       x: number;
       y: number;
+      baseSize: number;
       size: number;
       speedX: number;
       speedY: number;
       opacity: number;
+      pulseSpeed: number;
+      pulseOffset: number;
 
       constructor() {
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
-        this.size = Math.random() * 3 + 1;
+        this.baseSize = Math.random() * 3 + 1;
+        this.size = this.baseSize;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
         this.opacity = Math.random() * 0.5 + 0.2;
+        this.pulseSpeed = Math.random() * 0.02 + 0.01;
+        this.pulseOffset = Math.random() * Math.PI * 2;
       }
 
-      update() {
+      update(time: number) {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        // Mouse interaction
+        // Pulse size
+        this.size = this.baseSize + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.8;
+
+        // Mouse interaction — particles attract slightly near mouse, repel very close
         const dx = mouseX - this.x;
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          this.x -= dx / 50;
-          this.y -= dy / 50;
+        
+        if (distance < 50) {
+          // Strong repel
+          this.x -= dx / 20;
+          this.y -= dy / 20;
+        } else if (distance < 200) {
+          // Gentle attract
+          this.x += dx / 500;
+          this.y += dy / 500;
         }
 
         // Wrap around edges
@@ -70,9 +136,20 @@ export default function Hero() {
       }
 
       draw() {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        const color = isLight ? `rgba(124, 58, 237, ${this.opacity * 0.5})` : `rgba(167, 139, 250, ${this.opacity})`;
-        ctx!.fillStyle = color;
+        const colors = getColors();
+        
+        // Glow effect
+        const gradient = ctx!.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+        gradient.addColorStop(0, colors.particle(this.opacity));
+        gradient.addColorStop(1, colors.particle(0));
+        
+        ctx!.fillStyle = gradient;
+        ctx!.beginPath();
+        ctx!.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+        ctx!.fill();
+
+        // Core dot
+        ctx!.fillStyle = colors.particle(this.opacity);
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx!.fill();
@@ -83,34 +160,50 @@ export default function Hero() {
       particles.push(new Particle());
     }
 
+    let time = 0;
     const animateParticles = () => {
+      time++;
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      const colors = getColors();
 
       particles.forEach(particle => {
-        particle.update();
+        particle.update(time);
         particle.draw();
       });
 
-      // Draw connections
+      // Draw connections with gradient
       particles.forEach((p1, i) => {
         particles.slice(i + 1).forEach(p2 => {
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            const lineColor = isLight
-                ? `rgba(124, 58, 237, ${0.1 * (1 - distance / 120)})`
-                : `rgba(167, 139, 250, ${0.18 * (1 - distance / 120)})`;
-            ctx!.strokeStyle = lineColor;
-            ctx!.lineWidth = 1;
+          if (distance < 130) {
+            const alpha = 1 - distance / 130;
+            ctx!.strokeStyle = colors.line(alpha);
+            ctx!.lineWidth = alpha * 1.5;
             ctx!.beginPath();
             ctx!.moveTo(p1.x, p1.y);
             ctx!.lineTo(p2.x, p2.y);
             ctx!.stroke();
           }
         });
+      });
+
+      // Draw lines to mouse cursor
+      particles.forEach(p => {
+        const dx = mouseX - p.x;
+        const dy = mouseY - p.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 180) {
+          const alpha = (1 - distance / 180) * 0.4;
+          ctx!.strokeStyle = colors.line(alpha * 3);
+          ctx!.lineWidth = alpha * 2;
+          ctx!.beginPath();
+          ctx!.moveTo(p.x, p.y);
+          ctx!.lineTo(mouseX, mouseY);
+          ctx!.stroke();
+        }
       });
 
       animationFrameId = requestAnimationFrame(animateParticles);
@@ -134,7 +227,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="hero-content"
       >
-        <div className="hero-label">Mobile App Developer</div>
+        <TypewriterLabel />
         <h1 className="hero-title">
           <div style={{ overflow: "hidden", display: "inline-block" }}>
             <motion.span 
@@ -167,21 +260,22 @@ export default function Hero() {
           Crafting scalable mobile experiences with Flutter & Kotlin. 
           5 years of turning complex requirements into elegant, performant applications.
         </motion.p>
-        <div className="hero-stats">
-          <div className="stat">
-            <div className="stat-number">5+</div>
-            <div className="stat-label">Years Experience</div>
-          </div>
-          <div className="stat">
-            <div className="stat-number">10+</div>
-            <div className="stat-label">Apps Shipped</div>
-          </div>
-          <div className="stat">
-            <div className="stat-number">2</div>
-            <div className="stat-label">Best Dev Awards</div>
-          </div>
-        </div>
-        <div className="hero-cta">
+        <motion.div 
+          className="hero-stats"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          <AnimatedCounter target="5+" label="Years Experience" />
+          <AnimatedCounter target="10+" label="Apps Shipped" />
+          <AnimatedCounter target="2" label="Best Dev Awards" />
+        </motion.div>
+        <motion.div 
+          className="hero-cta"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+        >
           <Magnetic>
             <a href="#contact" className="btn btn-primary">Get in Touch</a>
           </Magnetic>
@@ -198,7 +292,7 @@ export default function Hero() {
               Download Resume
             </a>
           </Magnetic>
-        </div>
+        </motion.div>
       </motion.div>
       <motion.div 
         initial={{ opacity: 0, x: 50 }}

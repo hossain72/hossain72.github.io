@@ -2,13 +2,9 @@
 
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import TextReveal from "./TextReveal";
 
 export default function Projects() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   const projects = [
     {
       title: "Jameel (Rider & Captain)",
@@ -127,13 +123,13 @@ export default function Projects() {
       <div className="container">
         <motion.h2 
           className="section-title"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
         >
           <span className="section-number">03</span>
-          Featured Projects
+          <TextReveal text="Featured Projects" delay={200} />
         </motion.h2>
         
         <div className="projects-grid">

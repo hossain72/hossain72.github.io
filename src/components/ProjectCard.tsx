@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 export default function ProjectCard({ project, index }: { project: any, index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -13,41 +15,73 @@ export default function ProjectCard({ project, index }: { project: any, index: n
     const rect = cardRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
+    
+    // More dramatic tilt — up to 12 degrees
+    setRotateX((50 - y) * 0.24);
+    setRotateY((x - 50) * 0.24);
     setGlarePosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotateX(0);
+    setRotateY(0);
+    setGlarePosition({ x: 50, y: 50 });
   };
 
   return (
     <motion.div 
       ref={cardRef}
       className="project-card"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.15 }}
+      initial={{ opacity: 0, y: 40, rotateX: 5 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.15, ease: [0.215, 0.61, 0.355, 1] }}
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ 
-        y: -10, 
-        rotateX: (50 - glarePosition.y) * 0.1, 
-        rotateY: (glarePosition.x - 50) * 0.1,
-        boxShadow: "var(--shadow-xl)"
-      }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setGlarePosition({ x: 50, y: 50 });
+      onMouseLeave={handleMouseLeave}
+      style={{ 
+        transformStyle: "preserve-3d", 
+        perspective: "800px", 
+        position: "relative", 
+        overflow: "hidden",
+        transform: isHovered 
+          ? `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)` 
+          : "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)",
+        transition: isHovered 
+          ? "transform 0.1s ease-out" 
+          : "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
       }}
-      style={{ transformStyle: "preserve-3d", perspective: "1000px", position: "relative", overflow: "hidden" }}
     >
-      {/* Glare Overlay */}
+      {/* Spotlight Glare */}
       <div 
         style={{
           position: "absolute",
           top: 0, left: 0, right: 0, bottom: 0,
-          background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.08) 0%, transparent 60%)`,
+          background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(244, 114, 182, 0.12) 0%, rgba(34, 211, 238, 0.04) 30%, transparent 70%)`,
           opacity: isHovered ? 1 : 0,
           pointerEvents: "none",
           transition: "opacity 0.3s ease",
           zIndex: 10
+        }}
+      />
+
+      {/* Border glow that follows cursor */}
+      <div
+        style={{
+          position: "absolute",
+          top: -1, left: -1, right: -1, bottom: -1,
+          borderRadius: "17px",
+          background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(244, 114, 182, 0.6) 0%, rgba(34, 211, 238, 0.3) 30%, transparent 60%)`,
+          opacity: isHovered ? 1 : 0,
+          pointerEvents: "none",
+          transition: "opacity 0.3s ease",
+          zIndex: -1,
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+          WebkitMaskComposite: "xor",
+          padding: "1.5px"
         }}
       />
       
@@ -55,7 +89,16 @@ export default function ProjectCard({ project, index }: { project: any, index: n
         <h3 className="project-title">{project.title}</h3>
         <div className="project-links">
           {project.links.map((link: any, lIdx: number) => (
-            <a key={lIdx} href={link.url} target={link.url === '#' ? '_self' : '_blank'} rel="noreferrer" className="project-link" title={link.type}>
+            <motion.a 
+              key={lIdx} 
+              href={link.url} 
+              target={link.url === '#' ? '_self' : '_blank'} 
+              rel="noreferrer" 
+              className="project-link" 
+              title={link.type}
+              whileHover={{ scale: 1.2, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               {link.type === 'android' && (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
@@ -77,14 +120,21 @@ export default function ProjectCard({ project, index }: { project: any, index: n
                   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
                 </svg>
               )}
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>
       <p className="project-description" style={{ position: "relative", zIndex: 1 }}>{project.description}</p>
       <div className="project-tech" style={{ position: "relative", zIndex: 1 }}>
         {project.tech.map((tech: string, tIdx: number) => (
-          <span key={tIdx} className="tech-tag">{tech}</span>
+          <motion.span 
+            key={tIdx} 
+            className="tech-tag"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {tech}
+          </motion.span>
         ))}
       </div>
     </motion.div>
