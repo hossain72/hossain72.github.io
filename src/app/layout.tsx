@@ -1,24 +1,39 @@
-import type { Metadata } from "next";
-import { DM_Serif_Display, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: "400",
-  style: ["normal", "italic"],
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Anowar Hossain - Mobile App Developer",
-  description: "Crafting scalable mobile experiences with Flutter & Kotlin.",
+  title: "Md. Anowar Hossain | Senior Mobile App Developer (Flutter & Kotlin)",
+  description: "Senior Mobile Engineer with 5+ years building scalable, high-performance Flutter and native Android (Kotlin) apps. Clean Architecture advocate, 10+ published apps, 2x Best Developer award winner.",
+  keywords: ["Flutter Developer", "Android Developer", "Kotlin", "Clean Architecture", "Mobile App Developer", "Anowar Hossain"],
+  authors: [{ name: "Md. Anowar Hossain" }],
+  openGraph: {
+    title: "Md. Anowar Hossain - Senior Mobile App Developer",
+    description: "Crafting scalable, high-performance mobile experiences with Flutter & Kotlin.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070a13" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+  ],
 };
 
 export default function RootLayout({
@@ -44,7 +59,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${dmSerifDisplay.variable} ${jetbrainsMono.variable}`}>
+      <body className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
         <CustomCursor />
         {children}
       </body>

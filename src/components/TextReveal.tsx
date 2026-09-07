@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface TextRevealProps {
   text: string;
@@ -21,7 +21,7 @@ export default function TextReveal({ text, className = "", delay = 0 }: TextReve
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -33,7 +33,6 @@ export default function TextReveal({ text, className = "", delay = 0 }: TextReve
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
     let iteration = 0;
-    let timeoutId: ReturnType<typeof setTimeout>;
 
     const startAnimation = () => {
       const interval = setInterval(() => {
@@ -57,7 +56,7 @@ export default function TextReveal({ text, className = "", delay = 0 }: TextReve
       return interval;
     };
 
-    timeoutId = setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       startAnimation();
     }, delay);
 

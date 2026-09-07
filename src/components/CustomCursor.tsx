@@ -4,77 +4,81 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
-      // Check if hovering over clickable elements
       const target = e.target as HTMLElement;
-      if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.classList.contains('project-card') ||
-        target.classList.contains('skill-tag')
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+      if (!target) return;
+      const clickable = target.closest('a, button, .project-card, .skill-chip, input, textarea, [role="button"]');
+      setIsHovering(!!clickable);
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
+    const handleMouseLeave = () => {
+      setIsVisible(false);
+    };
+
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [isVisible]);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 10,
-      y: mousePosition.y - 10,
-      height: 20,
-      width: 20,
-      backgroundColor: 'transparent',
-      border: '2px solid var(--color-accent-primary)',
-      mixBlendMode: 'normal' as any,
-    },
-    hover: {
-      x: mousePosition.x - 40,
-      y: mousePosition.y - 40,
-      height: 80,
-      width: 80,
-      backgroundColor: 'var(--color-accent-primary)',
-      border: 'none',
-      mixBlendMode: 'difference' as any,
-      opacity: 0.4
-    }
-  };
+  if (!isVisible) return null;
 
   return (
     <>
       <motion.div
         className="custom-cursor"
-        variants={variants}
-        animate={isHovering ? "hover" : "default"}
-        transition={{ type: "spring", stiffness: 300, damping: 28, mass: 0.5 }}
+        animate={{
+          x: mousePosition.x - (isHovering ? 22 : 10),
+          y: mousePosition.y - (isHovering ? 22 : 10),
+          width: isHovering ? 44 : 20,
+          height: isHovering ? 44 : 20,
+          opacity: isHovering ? 0.35 : 0.6,
+        }}
+        transition={{ type: "spring", stiffness: 450, damping: 28, mass: 0.2 }}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          pointerEvents: 'none',
+          zIndex: 99999,
+          borderRadius: '50%',
+          border: '2px solid var(--color-accent-primary)',
+          backgroundColor: isHovering ? 'var(--color-accent-primary)' : 'transparent',
+        }}
       />
       <motion.div
         className="custom-cursor-dot"
         animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
+          x: mousePosition.x - 3,
+          y: mousePosition.y - 3,
         }}
-        transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.1 }}
+        transition={{ type: "spring", stiffness: 900, damping: 35, mass: 0.1 }}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: 6,
+          height: 6,
+          pointerEvents: 'none',
+          zIndex: 100000,
+          borderRadius: '50%',
+          backgroundColor: 'var(--color-accent-primary)',
+        }}
       />
     </>
   );
